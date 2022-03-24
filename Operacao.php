@@ -25,6 +25,26 @@ class Operacao{
         return $soma;
     }
 
+    public function subtrair(){
+        $subtrair = $this->valor1 - $this->valor2;
+        return $subtrair;
+    }
+
+    public function dividir(){
+        $dividir = $this->valor1 / $this->valor2;
+        return $dividir;
+    }
+
+    public function multiplicar(){
+        $multiplicar = $this->valor1 * $this->valor2;
+        return $multiplicar;
+    }
+
+    public function exponenciar(){
+        $exponenciar = pow($this->valor1,$this->valor2);
+        return $exponenciar;
+    }
+
 
 }
 

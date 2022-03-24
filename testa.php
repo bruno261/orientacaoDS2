@@ -23,7 +23,7 @@
             <option value="3">Subtrair</option>
             <option value="4">Dividir</option>
             <option value="5">Exponenciar</option>
-        </select>
+        </select><br/>
         <input type="submit" value="Calcular" id="btnCalcular" name="btnCalcular"> 
     </form>
     <?php
@@ -54,7 +54,7 @@
                 break;
         }
 
-        echo $resultado;
+        echo "<span style='color:red;'>".$resultado."</span>";
 
     }
        

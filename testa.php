@@ -1,23 +1,6 @@
 <?php
-
-require_once 'Operacao.php';
-
-$op1 = new Operacao();
-
-$op1->setValor1(1);
-$op1->setValor2(3);
-
-//print_r($op1);
-
-echo $op1->getValor1()."<br/>";
-echo $op1->getValor2()."<br/>";
-
-$resultado = $op1->somar(); 
-echo $resultado;
-
-
+    require_once 'Operacao.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +10,7 @@ echo $resultado;
     <title>Calculadora</title>
 </head>
 <body>
-    <form>
+    <form method="post">
         Valor 1:
         <input type="text" name="val1" id="val1"/><br/>
         Valor 2:
@@ -43,5 +26,39 @@ echo $resultado;
         </select>
         <input type="submit" value="Calcular" id="btnCalcular" name="btnCalcular"> 
     </form>
+    <?php
+
+    if(isset($_POST['btnCalcular'])){
+        $op1 = new Operacao();
+        $op1->setValor1($_POST['val1']);
+        $op1->setValor2($_POST['val2']);
+
+        switch ($_POST['selOperacao']) {
+            case 1:
+                $resultado = $op1->somar();
+                break;
+            case 2:
+                $resultado = $op1->multiplicar();
+                break;
+            case 3:
+                $resultado = $op1->subtrair();
+                break;
+            case 4:
+                $resultado = $op1->dividir();
+                break;
+            case 5:
+                $resultado = $op1->exponenciar();
+                break;
+            default:
+                $resultado = "Escolha uma operação";
+                break;
+        }
+
+        echo $resultado;
+
+    }
+       
+
+    ?>
 </body>
 </html>
